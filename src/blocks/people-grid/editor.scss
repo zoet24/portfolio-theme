@@ -1,0 +1,13 @@
+/* Basic editor styling to make the block more readable in Gutenberg */
+.wp-block-de-people-grid {
+  background: #f9f9f9;
+  border: 1px dashed #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+
+  p {
+    font-style: italic;
+    color: #666;
+    margin: 0;
+  }
+}
