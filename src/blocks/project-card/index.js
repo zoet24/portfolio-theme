@@ -1,7 +1,7 @@
 import { registerBlockType } from "@wordpress/blocks";
 import Edit from "./edit";
 import Save from "./save";
-import "./style.css";
+import "./style.scss";
 
 registerBlockType("portfolio/project-card", {
   title: "Project Card",
