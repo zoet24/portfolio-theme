@@ -1,0 +1,44 @@
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+
+  .progress-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    }
+
+    a.progress-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .progress-photo {
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    .progress-title {
+      font-size: 1.2rem;
+      text-align: center;
+      margin: 0.75rem 0 1rem;
+      padding: 0 1rem;
+      color: #333;
+    }
+  }
+}
