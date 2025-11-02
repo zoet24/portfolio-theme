@@ -10,8 +10,6 @@ get_header(); ?>
 <main id="primary" class="site-main">
 
     <section class="platform-page">
-        <h1 class="platform-page-title"><?php the_title(); ?></h1>
-
         <?php
         // Display the platform grid block
         if ( function_exists( 'do_blocks' ) ) {

@@ -1,0 +1,44 @@
+// Colours
+$colour-primary: #1e40af;
+$colour-secondary: #f59e0b;
+$colour-background: #c8c8c8;
+$colour-surface: #ffffff;
+$colour-text: #111827;
+$colour-text-light: #6b7280;
+$colour-border: #e5e7eb;
+
+// Typography
+$font-body: "Urbanist", sans-serif;
+$font-weight-body: 700;
+$font-heading: "Urbanist", sans-serif;
+
+$font-size-base: 16px;
+$font-size-sm: 0.875rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.5rem;
+$font-size-xxl: 2.25rem;
+
+$line-height-base: 1.5;
+
+// Spacing
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 2rem;
+$space-xl: 4rem;
+
+// Breakpoints
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Radii
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+
+// Shadow
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);

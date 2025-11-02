@@ -1,9 +1,10 @@
+@use "variables" as *;
+
 .site-footer {
-  background: #111; // deep neutral background
-  color: #fff;
-  padding: 3rem 1.5rem;
+  background: $colour-text;
+  color: $colour-surface;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: $font-size-sm;
   letter-spacing: 0.02em;
 
   .footer-inner {
@@ -12,12 +13,12 @@
   }
 
   p {
-    margin: 0.5rem 0 1.5rem;
-    color: #ccc;
+    color: $colour-text-light;
+    font-weight: 400;
   }
 
   .footer-nav {
-    margin-top: 1rem;
+    margin-top: $space-md;
 
     .footer-menu {
       list-style: none;
@@ -26,20 +27,21 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.5rem;
+      gap: $space-lg;
 
       li {
         display: inline-block;
 
         a {
-          color: #fff;
+          color: $colour-surface;
           text-decoration: none;
           font-weight: 500;
+          font-family: $font-body;
           transition: color 0.2s ease;
 
           &:hover,
           &:focus {
-            color: #f5c518; // accent color (you can change this)
+            color: $colour-secondary;
           }
         }
       }

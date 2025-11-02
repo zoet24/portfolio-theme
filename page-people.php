@@ -9,12 +9,7 @@ get_header();
 ?>
 
 <main id="site-content" role="main">
-
-    <header class="page-header">
-        <h1 class="page-title"><?php the_title(); ?></h1>
-    </header>
-
-    <div class="page-content">
+    <section class="people-page">
         <?php
         // Output the page content (optional)
         if ( have_posts() ) {
@@ -29,7 +24,7 @@ get_header();
             echo de_people_grid_render_callback([]);
         }
         ?>
-    </div>
+    </section>
 
 </main>
 

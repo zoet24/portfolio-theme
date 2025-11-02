@@ -1,32 +1,34 @@
+@use "variables" as *;
+
 .site-header {
-  background: #fff;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
+  padding: $space-md 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  .logo a {
-    font-weight: 700;
-    text-decoration: none;
-    color: #000;
-  }
-
   .main-navigation {
+    width: 100%;
+
     .nav-menu {
       display: flex;
-      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
       list-style: none;
       margin: 0;
       padding: 0;
 
-      li a {
-        color: #333;
-        text-decoration: none;
-        font-weight: 500;
+      li {
+        flex: 1;
+        text-align: center;
 
-        &:hover {
-          color: #000;
+        a {
+          color: $colour-text;
+          text-decoration: none;
+
+          &:hover {
+            color: $colour-text-light;
+          }
         }
       }
     }
@@ -34,5 +36,5 @@
 }
 
 .nav-menu .current-menu-item a {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid $colour-text;
 }
