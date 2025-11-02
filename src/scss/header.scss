@@ -1,7 +1,7 @@
 @use "variables" as *;
 
 .site-header {
-  padding: $space-md 0;
+  padding: $space-md $space-sm;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,4 +37,10 @@
 
 .nav-menu .current-menu-item a {
   border-bottom: 2px solid $colour-text;
+}
+
+@media (min-width: $breakpoint-sm) {
+  .site-header {
+    padding: $space-md;
+  }
 }

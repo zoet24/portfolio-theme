@@ -48,7 +48,7 @@ function de_people_grid_render_callback($attributes) {
             <?php while ($people->have_posts()) : $people->the_post(); 
                 $image = get_field('image');
                 $bio = get_field('bio');
-                $category = get_field('category');
+                $categories = get_field('category');
                 $contact1 = get_field('contact-1');
                 $contact2 = get_field('contact-2');
             ?>
@@ -56,36 +56,45 @@ function de_people_grid_render_callback($attributes) {
                     <?php if ($image) : ?>
                         <div class="person-photo">
                             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+                            <?php if ($bio || $categories) : ?>
+                                <div class="person-overlay">
+                                    <div class="person-bio-container">
+                                        <?php if ($bio) : ?>
+                                            <p class="person-bio"><?php echo esc_html($bio); ?></p>
+                                        <?php endif; ?>
+                                        <?php if ($categories) : ?>
+                                            <div class="person-categories">
+                                                <?php
+                                                if (is_array($categories)) {
+                                                    foreach ($categories as $category) {
+                                                        echo '<span class="person-category">' . esc_html($category) . '</span>';
+                                                    }
+                                                } else {
+                                                    echo '<span class="person-category">' . esc_html($categories) . '</span>';
+                                                }
+                                                ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     <?php endif; ?>
+
                     <h3 class="person-name"><?php the_title(); ?></h3>
-                    <?php if ($bio) : ?>
-                        <p class="person-bio"><?php echo esc_html($bio); ?></p>
-                    <?php endif; ?>
-                    <?php 
-                    $category = get_field('category');
-                    if ($category) : 
-                        if (is_array($category)) {
-                            // Join multiple categories with commas
-                            $category_list = implode(', ', array_map('esc_html', $category));
-                        } else {
-                            $category_list = esc_html($category);
-                        }
-                    ?>
-                        <p class="person-category"><?php echo $category_list; ?></p>
-                    <?php endif; ?>
-                    <p class="person-links">
-                        <?php if ($contact1 && is_array($contact1)) : ?>
+
+                    <?php if ($contact1 && is_array($contact1)) : ?>
+                        <p class="person-links">
                             <a href="<?php echo esc_url($contact1['url']); ?>" target="<?php echo esc_attr($contact1['target'] ?? '_blank'); ?>">
                                 <?php echo esc_html($contact1['title'] ?? 'Contact 1'); ?>
                             </a>
-                        <?php endif; ?>
-                        <?php if ($contact2 && is_array($contact2)) : ?>
-                            <a href="<?php echo esc_url($contact2['url']); ?>" target="<?php echo esc_attr($contact2['target'] ?? '_blank'); ?>">
-                                <?php echo esc_html($contact2['title'] ?? 'Contact 2'); ?>
-                            </a>
-                        <?php endif; ?>
-                    </p>
+                            <?php if ($contact2 && is_array($contact2)) : ?>
+                                <a href="<?php echo esc_url($contact2['url']); ?>" target="<?php echo esc_attr($contact2['target'] ?? '_blank'); ?>">
+                                    <?php echo esc_html($contact2['title'] ?? 'Contact 2'); ?>
+                                </a>
+                            <?php endif; ?>
+                        </p>
+                    <?php endif; ?>
                 </div>
             <?php endwhile; wp_reset_postdata(); ?>
         </div>
@@ -93,8 +102,6 @@ function de_people_grid_render_callback($attributes) {
 
     return ob_get_clean();
 }
-
-
 
 // Register server-side rendered block
 function de_register_people_grid_block() {
