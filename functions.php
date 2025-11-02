@@ -9,3 +9,4 @@ require get_template_directory() . '/inc/blocks.php';
 require get_template_directory() . '/inc/people.php';
 require get_template_directory() . '/inc/platform.php';
 require get_template_directory() . '/inc/progress.php';
+require get_template_directory() . '/inc/setup.php';

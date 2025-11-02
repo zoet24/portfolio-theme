@@ -1,7 +1,20 @@
-@import "../blocks/people-grid/style.scss";
-@import "../blocks/platform-grid/style.scss";
-@import "../blocks/progress-grid/style.scss";
+@use "../blocks/people-grid/style.scss" as people;
+@use "../blocks/platform-grid/style.scss" as platform;
+@use "../blocks/progress-grid/style.scss" as progress;
+@use "../scss/footer";
+@use "../scss/header";
+
+html,
+body {
+  height: 100%;
+}
 
 body {
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
