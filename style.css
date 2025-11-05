@@ -125,22 +125,22 @@
   color: #333;
 }
 
+.progress-page {
+  padding: 2rem;
+}
+
 .progress-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   padding: 2rem 0;
 }
 .progress-grid .progress-card {
+  display: flex;
   border-radius: 8px;
   overflow: hidden;
-  background: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  text-align: left;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.progress-grid .progress-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 .progress-grid .progress-card a.progress-link {
   display: flex;
@@ -149,24 +149,28 @@
   color: inherit;
   height: 100%;
 }
+.progress-grid .progress-card .progress-photo {
+  flex: 0 0 160px;
+}
 .progress-grid .progress-card .progress-photo img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 .progress-grid .progress-card .progress-content {
+  flex: 1;
   padding: 1rem;
-  text-align: center;
+  text-align: left;
 }
 .progress-grid .progress-card .progress-content .progress-date {
   font-size: 0.875rem;
   color: #6b7280;
-  margin-bottom: 0.25rem;
+  margin: 0;
 }
 .progress-grid .progress-card .progress-content .progress-title {
   font-size: 1.125rem;
-  margin-bottom: 0.25rem;
+  margin: 0;
   font-family: "Urbanist", sans-serif;
   color: #111827;
 }
@@ -174,6 +178,79 @@
   font-size: 16px;
   color: #6b7280;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .progress-grid {
+    grid-template-columns: 1fr;
+  }
+  .progress-grid .progress-card {
+    flex-direction: column;
+  }
+  .progress-grid .progress-card .progress-photo {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+  }
+  .progress-grid .progress-card .progress-content {
+    text-align: center;
+  }
+}
+.single-de_progress .progress-item {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.single-de_progress .progress-item .progress-header {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.single-de_progress .progress-item .progress-header .progress-title {
+  font-size: 1.5rem;
+  font-family: "Urbanist", sans-serif;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+.single-de_progress .progress-item .progress-header .progress-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+.single-de_progress .progress-item .progress-photo {
+  width: 100%;
+  max-height: 600px;
+  overflow: hidden;
+}
+.single-de_progress .progress-item .progress-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.single-de_progress .progress-item .progress-description {
+  font-size: 16px;
+  color: #111827;
+  line-height: 1.6;
+}
+.single-de_progress .progress-item .progress-description p {
+  margin-bottom: 1rem;
+}
+
+.single-de_platform .platform-photo {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+.single-de_platform .platform-content {
+  padding: 1rem;
+}
+.single-de_platform .platform-content h1.platform-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.single-de_platform .platform-content .platform-description {
+  font-size: 16px;
+  color: #6b7280;
 }
 
 .site-footer {

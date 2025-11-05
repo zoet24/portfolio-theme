@@ -1,0 +1,26 @@
+@use "../variables" as *;
+
+// --------------------------------------------------
+// Single Platform Item
+// --------------------------------------------------
+.single-de_platform {
+  .platform-photo {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+  }
+
+  .platform-content {
+    padding: $space-md;
+
+    h1.platform-title {
+      font-size: $font-size-xl;
+      margin-bottom: $space-sm;
+    }
+
+    .platform-description {
+      font-size: $font-size-base;
+      color: $colour-text-light;
+    }
+  }
+}

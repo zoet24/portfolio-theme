@@ -2,6 +2,8 @@
 @use "../blocks/people-grid/style.scss" as people;
 @use "../blocks/platform-grid/style.scss" as platform;
 @use "../blocks/progress-grid/style.scss" as progress;
+@use "./pages/single-progress.scss" as singleProgress;
+@use "./pages/single-platform.scss" as singlePlatform;
 @use "../scss/footer";
 @use "../scss/header";
 

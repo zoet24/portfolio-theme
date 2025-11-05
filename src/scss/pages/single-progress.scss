@@ -1,0 +1,53 @@
+@use "../variables" as *;
+
+// --------------------------------------------------
+// Single Progress Item
+// --------------------------------------------------
+.single-de_progress {
+  .progress-item {
+    padding: $space-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $space-lg; // spacing between sections
+
+    .progress-header {
+      text-align: left;
+      margin-bottom: $space-md;
+
+      .progress-title {
+        font-size: $font-size-xl;
+        font-family: $font-heading;
+        color: $colour-text;
+        margin-bottom: $space-xs;
+      }
+
+      .progress-date {
+        font-size: $font-size-sm;
+        color: $colour-text-light;
+      }
+    }
+
+    .progress-photo {
+      width: 100%;
+      max-height: 600px; // optional max height
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    .progress-description {
+      font-size: $font-size-base;
+      color: $colour-text;
+      line-height: 1.6;
+
+      p {
+        margin-bottom: $space-md;
+      }
+    }
+  }
+}
