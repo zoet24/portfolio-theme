@@ -25,8 +25,8 @@ function de_register_person_cpt() {
         'labels'             => $labels,
         'public'             => true,
         'show_in_rest'       => true,
-        'has_archive'        => 'people', // ✅ Explicitly set archive slug
-        'rewrite'            => ['slug' => 'people', 'with_front' => false], // ✅ Consistent rewrite
+        'has_archive'        => 'people', // 👈 change this from false
+        'rewrite'            => ['slug' => 'people', 'with_front' => false],
         'supports'           => ['title', 'editor', 'thumbnail'],
         'menu_icon'          => 'dashicons-admin-users',
     ];
