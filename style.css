@@ -56,7 +56,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .person-card .person-overlay .person-category {
   display: inline-block;
@@ -128,13 +128,13 @@
 .progress-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 2rem 0;
 }
 .progress-grid .progress-card {
-  border-radius: 0.5rem;
+  border-radius: 8px;
   overflow: hidden;
-  background: #fff;
+  background: #ffffff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -143,9 +143,11 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 .progress-grid .progress-card a.progress-link {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
+  height: 100%;
 }
 .progress-grid .progress-card .progress-photo img {
   display: block;
@@ -153,12 +155,25 @@
   height: auto;
   object-fit: cover;
 }
-.progress-grid .progress-card .progress-title {
-  font-size: 1.2rem;
+.progress-grid .progress-card .progress-content {
+  padding: 1rem;
   text-align: center;
-  margin: 0.75rem 0 1rem;
-  padding: 0 1rem;
-  color: #333;
+}
+.progress-grid .progress-card .progress-content .progress-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-bottom: 0.25rem;
+}
+.progress-grid .progress-card .progress-content .progress-title {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+  font-family: "Urbanist", sans-serif;
+  color: #111827;
+}
+.progress-grid .progress-card .progress-content .progress-description {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
 }
 
 .site-footer {

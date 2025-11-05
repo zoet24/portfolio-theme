@@ -52,7 +52,15 @@ function de_progress_grid_render_callback($attributes) {
 
                 // Get ACF fields
                 $mainImage = get_field('main-image');
+                $customDate = get_field('custom-date');
+                $customTitle = get_field('custom-title');
+                $description = get_field('description');
+
+                // Fallbacks
+                $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
+                $title = $customTitle ? esc_html($customTitle) : get_the_title();
                 ?>
+                
                 <div class="progress-card">
                     <a href="<?php the_permalink(); ?>" class="progress-link">
                         <?php if ($mainImage) : ?>
@@ -61,7 +69,14 @@ function de_progress_grid_render_callback($attributes) {
                             </div>
                         <?php endif; ?>
 
-                        <h3 class="progress-title"><?php the_title(); ?></h3>
+                        <div class="progress-content">
+                            <p class="progress-date"><?php echo esc_html($date); ?></p>
+                            <h3 class="progress-title"><?php echo esc_html($title); ?></h3>
+
+                            <?php if ($description) : ?>
+                                <p class="progress-description"><?php echo esc_html($description); ?></p>
+                            <?php endif; ?>
+                        </div>
                     </a>
                 </div>
             <?php endwhile; wp_reset_postdata(); ?>
