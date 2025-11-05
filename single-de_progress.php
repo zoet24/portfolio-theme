@@ -1,36 +1,44 @@
 <?php
+/**
+ * Single template for individual Progress Items
+ */
+
 get_header();
+?>
 
-while ( have_posts() ) : the_post(); ?>
+<main id="site-content" role="main">
+    <article class="progress-item">
+        <?php while (have_posts()) : the_post();
 
-<main id="primary" class="site-main single-progress">
+            $mainImage = get_field('main-image');
+            $customDate = get_field('custom-date');
+            $customTitle = get_field('custom-title');
+            $description = get_field('description');
 
-  <article <?php post_class(); ?>>
-    <header class="progress-header">
-      <?php
-      $mainImage = get_field('main-image');
-      $customDate = get_field('custom-date');
-      $customTitle = get_field('custom-title');
-      $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
-      $title = $customTitle ? esc_html($customTitle) : get_the_title();
-      ?>
+            $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
+            $title = $customTitle ? esc_html($customTitle) : get_the_title();
+        ?>
 
-      <?php if ($mainImage) : ?>
-        <div class="progress-hero">
-          <img src="<?php echo esc_url($mainImage['url']); ?>" alt="<?php echo esc_attr($mainImage['alt']); ?>">
-        </div>
-      <?php endif; ?>
+            <div class="progress-header">
+                <h1 class="progress-title"><?php echo esc_html($title); ?></h1>
+                <p class="progress-date"><?php echo esc_html($date); ?></p>
+            </div>
 
-      <h1 class="progress-title"><?php echo $title; ?></h1>
-      <p class="progress-date"><?php echo esc_html($date); ?></p>
-    </header>
+            <?php if ($mainImage) : ?>
+                <div class="progress-photo">
+                    <img src="<?php echo esc_url($mainImage['url']); ?>" alt="<?php echo esc_attr($mainImage['alt']); ?>" />
+                </div>
+            <?php endif; ?>
 
-    <div class="progress-body">
-      <?php the_content(); // Displays Gutenberg blocks ?>
-    </div>
-  </article>
+            <div class="progress-description">
+                <?php the_content(); ?>
+                <?php if ($description) : ?>
+                    <p><?php echo esc_html($description); ?></p>
+                <?php endif; ?>
+            </div>
 
+        <?php endwhile; ?>
+    </article>
 </main>
 
-<?php endwhile;
-get_footer();
+<?php get_footer(); ?>
