@@ -5,6 +5,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: $colour-background;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 
   .main-navigation {
     width: 100%;
