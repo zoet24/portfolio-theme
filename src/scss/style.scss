@@ -7,6 +7,10 @@
 @use "../scss/footer";
 @use "../scss/header";
 
+* {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -25,4 +29,20 @@ body {
 
 main {
   flex: 1;
+
+  section {
+    padding-bottom: $section-padding-md;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.content-narrow {
+  max-width: 720px;
+  margin-inline: auto;
 }
