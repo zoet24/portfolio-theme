@@ -14,7 +14,6 @@ get_header();
                 $mainImage = get_field('main-image');
                 $customDate = get_field('custom-date');
                 $customTitle = get_field('custom-title');
-                $description = get_field('description');
 
                 $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
                 $title = $customTitle ? esc_html($customTitle) : get_the_title();
@@ -31,11 +30,8 @@ get_header();
                     </div>
                 <?php endif; ?>
 
-                <div class="progress-description">
+                <div class="progress-content">
                     <?php the_content(); ?>
-                    <?php if ($description) : ?>
-                        <p><?php echo esc_html($description); ?></p>
-                    <?php endif; ?>
                 </div>
 
             <?php endwhile; ?>

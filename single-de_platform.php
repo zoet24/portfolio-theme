@@ -1,15 +1,31 @@
 <?php
-get_header(); ?>
+/**
+ * Single template for individual Platform Items
+ */
 
-<main id="primary" class="site-main">
+get_header();
+?>
+
+<main id="site-content" role="main">
     <div class="container content-narrow">
-        <?php while (have_posts()) : the_post(); ?>
-            <article <?php post_class('platform-single'); ?>>
-                <h1 class="platform-title"><?php the_title(); ?></h1>
+        <article class="platform-item">
+            <?php while (have_posts()) : the_post();
 
-                <?php $mainImage = get_field('main-image'); ?>
+                $mainImage = get_field('main-image');
+                $customDate = get_field('custom-date');
+                $customTitle = get_field('custom-title');
+
+                $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
+                $title = $customTitle ? esc_html($customTitle) : get_the_title();
+            ?>
+
+                <div class="platform-header">
+                    <h1 class="platform-title"><?php echo esc_html($title); ?></h1>
+                    <p class="platform-date"><?php echo esc_html($date); ?></p>
+                </div>
+
                 <?php if ($mainImage) : ?>
-                    <div class="platform-main-image">
+                    <div class="platform-photo">
                         <img src="<?php echo esc_url($mainImage['url']); ?>" alt="<?php echo esc_attr($mainImage['alt']); ?>" />
                     </div>
                 <?php endif; ?>
@@ -17,8 +33,9 @@ get_header(); ?>
                 <div class="platform-content">
                     <?php the_content(); ?>
                 </div>
-            </article>
-        <?php endwhile; ?>
+
+            <?php endwhile; ?>
+        </article>
     </div>
 </main>
 

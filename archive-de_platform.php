@@ -1,21 +1,27 @@
 <?php
-get_header(); ?>
+/**
+ * Archive template for Platform Items
+ * Displays all 'de_platform' posts in a grid.
+ */
 
-<main id="primary" class="site-main">
+get_header();
+?>
+
+<main id="site-content" role="main">
     <div class="container">
-        <section class="platform-archive">
-            <?php
-            $platform_items = new WP_Query([
-                'post_type'      => 'de_platform',
-                'posts_per_page' => -1,
-                'orderby'        => 'date',
-                'order'          => 'DESC',
-            ]);
+        <section class="platform-page">
 
-            if ($platform_items->have_posts()) : ?>
+            <?php if (have_posts()) : ?>
                 <div class="platform-grid">
-                    <?php while ($platform_items->have_posts()) : $platform_items->the_post(); ?>
-                        <?php $mainImage = get_field('main-image'); ?>
+                    <?php while (have_posts()) : the_post();
+
+                        // Get ACF fields
+                        $mainImage = get_field('main-image');
+                        $customTitle = get_field('custom-title');
+
+                        // Fallbacks
+                        $title = $customTitle ? esc_html($customTitle) : get_the_title();
+                        ?>
 
                         <div class="platform-card">
                             <a href="<?php the_permalink(); ?>" class="platform-link">
@@ -25,14 +31,18 @@ get_header(); ?>
                                     </div>
                                 <?php endif; ?>
 
-                                <h3 class="platform-title"><?php the_title(); ?></h3>
+                                <div class="platform-content">
+                                    <h3 class="platform-title"><?php echo esc_html($title); ?></h3>
+                                </div>
                             </a>
                         </div>
-                    <?php endwhile; wp_reset_postdata(); ?>
+
+                    <?php endwhile; ?>
                 </div>
             <?php else : ?>
                 <p>No platform items found.</p>
             <?php endif; ?>
+
         </section>
     </div>
 </main>

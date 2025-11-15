@@ -1,30 +1,20 @@
 @use "../../scss/variables" as *;
 
-.progress-page {
-  padding: $space-lg;
-}
-
 .progress-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); // 2 items per row
   gap: $space-lg;
-  padding: $space-lg 0;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: stretch;
 
   .progress-card {
-    display: flex; // side-by-side layout
-    border-radius: $radius-md;
     overflow: hidden;
-    text-align: left;
-    // background: $colour-surface;
-    // box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
-
-    // &:hover {
-    //   transform: translateY(-4px);
-    //   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-    // }
 
     a.progress-link {
       display: flex;
@@ -32,21 +22,25 @@
       text-decoration: none;
       color: inherit;
       height: 100%;
+      width: 100%;
     }
 
     .progress-photo {
-      flex: 0 0 160px; // fixed width for image
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+
       img {
-        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
       }
     }
 
     .progress-content {
       flex: 1;
-      padding: $space-md;
+      padding-top: $space-md;
       text-align: left;
 
       .progress-date {
@@ -71,23 +65,21 @@
   }
 }
 
-// Optional: make it responsive for smaller screens
+// Mobile responsive
 @media (max-width: 768px) {
   .progress-grid {
     grid-template-columns: 1fr;
+  }
 
-    .progress-card {
-      flex-direction: column;
+  .progress-card {
+    width: 100%;
+  }
 
-      .progress-photo {
-        flex: 0 0 auto;
-        width: 100%;
-        height: auto;
-      }
+  .progress-photo {
+    height: auto;
 
-      .progress-content {
-        text-align: center;
-      }
+    img {
+      height: auto;
     }
   }
 }
