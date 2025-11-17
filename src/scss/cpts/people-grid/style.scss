@@ -1,5 +1,5 @@
-@use "../../scss/variables" as *;
-@use "../../scss/grid" as grid;
+@use "../../variables" as *;
+@use "../../grid" as grid;
 
 .people-grid {
   @extend .grid;
@@ -38,7 +38,7 @@
     justify-content: flex-end;
     opacity: 0;
     transition: opacity 0.3s ease;
-    font-size: $font-size-xl;
+    font-size: $font-size-lg;
     font-weight: 400;
 
     .person-bio-container {
@@ -70,19 +70,19 @@
     opacity: 1;
   }
 
+  .person-content {
+    @extend .card-content;
+  }
+
   .person-name {
     font-size: $font-size-lg;
-    margin: $space-sm 0;
     font-family: $font-heading;
     color: $colour-text;
-    text-align: center;
   }
 
   .person-links {
     display: flex;
-    justify-content: center;
     gap: $space-xs;
-    margin: 0;
 
     a {
       color: $colour-primary;

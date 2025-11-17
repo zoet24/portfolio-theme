@@ -35,10 +35,16 @@
   object-fit: cover;
   display: block;
 }
-.card .card-content, .progress-card .card-content, .platform-card .card-content, .person-card .card-content, .progress-card .progress-content, .platform-card .platform-content {
+.card .card-content, .progress-card .card-content, .platform-card .card-content, .person-card .card-content, .progress-card .progress-content, .platform-card .platform-content, .person-card .person-content {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   padding-top: 1rem;
   text-align: left;
+  gap: 0.25rem;
+}
+.card .card-content > *, .progress-card .card-content > *, .platform-card .card-content > *, .person-card .card-content > *, .progress-card .progress-content > *, .platform-card .platform-content > *, .person-card .person-content > * {
+  margin: 0;
 }
 
 /* Mobile */
@@ -96,7 +102,7 @@
   justify-content: flex-end;
   opacity: 0;
   transition: opacity 0.3s ease;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
   font-weight: 400;
 }
 .person-card .person-overlay .person-bio-container {
@@ -126,16 +132,12 @@
 }
 .person-card .person-name {
   font-size: 1.125rem;
-  margin: 0.5rem 0;
   font-family: "Roboto", sans-serif;
   color: #111827;
-  text-align: center;
 }
 .person-card .person-links {
   display: flex;
-  justify-content: center;
   gap: 0.25rem;
-  margin: 0;
 }
 .person-card .person-links a {
   color: #1e40af;
@@ -159,7 +161,6 @@
 }
 .platform-card .platform-title {
   font-size: 1.125rem;
-  margin: 0;
   font-family: "Roboto", sans-serif;
 }
 
@@ -173,7 +174,6 @@
 }
 .progress-card .progress-title {
   font-size: 1.125rem;
-  margin: 0;
   font-family: "Roboto", sans-serif;
 }
 .progress-card .progress-description {

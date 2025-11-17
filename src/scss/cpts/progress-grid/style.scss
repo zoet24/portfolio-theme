@@ -1,5 +1,5 @@
-@use "../../scss/variables" as *;
-@use "../../scss/grid" as grid;
+@use "../../variables" as *;
+@use "../../grid" as grid;
 
 /* Attach the shared classes */
 .progress-grid {
@@ -29,7 +29,6 @@
 
   .progress-title {
     font-size: $font-size-lg;
-    margin: 0;
     font-family: $font-heading;
   }
 

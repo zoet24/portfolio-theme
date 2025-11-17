@@ -1,11 +1,11 @@
 @use "variables" as *;
-@use "../blocks/people-grid/style.scss" as people;
-@use "../blocks/platform-grid/style.scss" as platform;
-@use "../blocks/progress-grid/style.scss" as progress;
+@use "./cpts/people-grid/style.scss" as people;
+@use "./cpts/platform-grid/style.scss" as platform;
+@use "./cpts/progress-grid/style.scss" as progress;
 @use "./pages/single-progress.scss" as singleProgress;
 @use "./pages/single-platform.scss" as singlePlatform;
-@use "../scss/footer";
-@use "../scss/header";
+@use "./footer";
+@use "./header";
 
 // TOZO - consolidate grid scss into shared functionality (maybe leave current class names on, but add generic classes for shared styling from single source of truth)
 

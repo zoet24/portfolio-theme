@@ -1,5 +1,5 @@
-@use "../../scss/variables" as *;
-@use "../../scss/grid" as grid;
+@use "../../variables" as *;
+@use "../../grid" as grid;
 
 .platform-grid {
   @extend .grid;
@@ -23,7 +23,6 @@
   /* Platform-specific styling */
   .platform-title {
     font-size: $font-size-lg;
-    margin: 0;
     font-family: $font-heading;
   }
 }

@@ -49,21 +49,23 @@
                                 </div>
                             <?php endif; ?>
 
-                            <h3 class="person-name"><?php the_title(); ?></h3>
+                            <div class="person-content">
+                                <h3 class="person-name"><?php the_title(); ?></h3>
 
-                            <?php if ($contact1 && is_array($contact1)) : ?>
-                                <p class="person-links">
-                                    <a href="<?php echo esc_url($contact1['url']); ?>" target="<?php echo esc_attr($contact1['target'] ?? '_blank'); ?>">
-                                        <?php echo esc_html($contact1['title'] ?? 'Contact 1'); ?>
-                                    </a>
-
-                                    <?php if ($contact2 && is_array($contact2)) : ?>
-                                        <a href="<?php echo esc_url($contact2['url']); ?>" target="<?php echo esc_attr($contact2['target'] ?? '_blank'); ?>">
-                                            <?php echo esc_html($contact2['title'] ?? 'Contact 2'); ?>
+                                <?php if ($contact1 && is_array($contact1)) : ?>
+                                    <p class="person-links">
+                                        <a href="<?php echo esc_url($contact1['url']); ?>" target="<?php echo esc_attr($contact1['target'] ?? '_blank'); ?>">
+                                            <?php echo esc_html($contact1['title'] ?? 'Contact 1'); ?>
                                         </a>
-                                    <?php endif; ?>
-                                </p>
-                            <?php endif; ?>
+
+                                        <?php if ($contact2 && is_array($contact2)) : ?>
+                                            <a href="<?php echo esc_url($contact2['url']); ?>" target="<?php echo esc_attr($contact2['target'] ?? '_blank'); ?>">
+                                                <?php echo esc_html($contact2['title'] ?? 'Contact 2'); ?>
+                                            </a>
+                                        <?php endif; ?>
+                                    </p>
+                                <?php endif; ?>
+                            </div>
                         </div>
                 <?php
                     endwhile;

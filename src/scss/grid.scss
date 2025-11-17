@@ -42,9 +42,16 @@
   }
 
   .card-content {
+    display: flex;
+    flex-direction: column;
     flex: 1;
     padding-top: $space-md;
     text-align: left;
+    gap: $space-xs;
+
+    > * {
+      margin: 0;
+    }
   }
 }
 
