@@ -1,39 +1,34 @@
 @use "../../scss/variables" as *;
+@use "../../scss/grid" as grid;
 
 .people-grid {
-  display: grid;
-  gap: $space-lg;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(0, 300px));
+  @extend .grid;
+
+  /* Small screens → 2 columns */
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Medium screens → 3 columns */
+  @media (min-width: 840px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Large screens → 4 columns */
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .person-card {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-
-  &:hover .person-overlay {
-    opacity: 1;
-  }
+  @extend .card;
 
   .person-photo {
-    width: 100%;
-    height: 480px;
-    overflow: hidden;
+    @extend .card-photo;
     position: relative;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
   }
 
+  /* Overlay is unique */
   .person-overlay {
     position: absolute;
     inset: 0;
@@ -70,6 +65,11 @@
     }
   }
 
+  /* Hover behaviour unique to People */
+  &:hover .person-overlay {
+    opacity: 1;
+  }
+
   .person-name {
     font-size: $font-size-lg;
     margin: $space-sm 0;
@@ -96,18 +96,11 @@
   }
 }
 
-// Mobile
 @media (max-width: 768px) {
-  .people-grid {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
-  }
-
-  .person-card {
-    max-width: 100%;
-  }
-
-  .person-photo img {
-    height: auto;
+  .person-card .person-photo {
+    height: 480px;
+    img {
+      height: 100%;
+    }
   }
 }

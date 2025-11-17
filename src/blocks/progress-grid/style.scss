@@ -1,85 +1,40 @@
 @use "../../scss/variables" as *;
+@use "../../scss/grid" as grid;
 
+/* Attach the shared classes */
 .progress-grid {
-  display: grid;
-  gap: $space-lg;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: stretch;
-
-  .progress-card {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-
-    a.progress-link {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      height: 100%;
-      width: 100%;
-    }
-
-    .progress-photo {
-      width: 100%;
-      height: 480px;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-    }
-
-    .progress-content {
-      flex: 1;
-      padding-top: $space-md;
-      text-align: left;
-
-      .progress-date {
-        font-size: $font-size-sm;
-        color: $colour-text-light;
-        margin: 0;
-      }
-
-      .progress-title {
-        font-size: $font-size-lg;
-        margin: 0;
-        font-family: $font-heading;
-        color: $colour-text;
-      }
-
-      .progress-description {
-        font-size: $font-size-base;
-        color: $colour-text-light;
-        margin: 0;
-      }
-    }
-  }
+  @extend .grid;
 }
 
-// Mobile responsive
-@media (max-width: 768px) {
-  .progress-grid {
-    grid-template-columns: 1fr;
-  }
+.progress-card {
+  @extend .card;
 
-  .progress-card {
-    width: 100%;
+  .progress-link {
+    @extend .card-link;
   }
 
   .progress-photo {
-    height: auto;
+    @extend .card-photo;
+  }
 
-    img {
-      height: auto;
-    }
+  .progress-content {
+    @extend .card-content;
+  }
+
+  /* Progress-specific styling */
+  .progress-date {
+    font-size: $font-size-sm;
+    color: $colour-text-light;
+  }
+
+  .progress-title {
+    font-size: $font-size-lg;
+    margin: 0;
+    font-family: $font-heading;
+  }
+
+  .progress-description {
+    font-size: $font-size-base;
+    color: $colour-text-light;
   }
 }

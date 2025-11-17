@@ -1,73 +1,29 @@
 @use "../../scss/variables" as *;
+@use "../../scss/grid" as grid;
 
 .platform-grid {
-  display: grid;
-  gap: $space-lg;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: stretch;
-
-  .platform-card {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-
-    a.platform-link {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      height: 100%;
-      width: 100%;
-    }
-
-    .platform-photo {
-      width: 100%;
-      height: 480px;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-    }
-
-    .platform-content {
-      flex: 1;
-      padding-top: $space-md;
-      text-align: left;
-
-      .platform-title {
-        font-size: $font-size-lg;
-        margin: 0;
-        font-family: $font-heading;
-        color: $colour-text;
-      }
-    }
-  }
+  @extend .grid;
 }
 
-// Mobile responsive
-@media (max-width: 768px) {
-  .platform-grid {
-    grid-template-columns: 1fr;
-  }
+.platform-card {
+  @extend .card;
 
-  .platform-card {
-    width: 100%;
+  .platform-link {
+    @extend .card-link;
   }
 
   .platform-photo {
-    height: auto;
+    @extend .card-photo;
+  }
 
-    img {
-      height: auto;
-    }
+  .platform-content {
+    @extend .card-content;
+  }
+
+  /* Platform-specific styling */
+  .platform-title {
+    font-size: $font-size-lg;
+    margin: 0;
+    font-family: $font-heading;
   }
 }

@@ -1,33 +1,91 @@
-.people-grid {
+@charset "UTF-8";
+.grid, .progress-grid, .platform-grid, .people-grid {
   display: grid;
   gap: 2rem;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(0, 300px));
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: stretch;
 }
 
-.person-card {
+/* Generic card */
+.card, .progress-card, .platform-card, .person-card {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   position: relative;
   width: 100%;
-  max-width: 300px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.person-card:hover .person-overlay {
-  opacity: 1;
+.card .card-link, .progress-card .card-link, .platform-card .card-link, .person-card .card-link, .progress-card .progress-link, .platform-card .platform-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+  width: 100%;
 }
-.person-card .person-photo {
+.card .card-photo, .progress-card .card-photo, .platform-card .card-photo, .person-card .card-photo, .progress-card .progress-photo, .platform-card .platform-photo, .person-card .person-photo {
   width: 100%;
   height: 480px;
   overflow: hidden;
-  position: relative;
 }
-.person-card .person-photo img {
+.card .card-photo img, .progress-card .card-photo img, .platform-card .card-photo img, .person-card .card-photo img, .progress-card .progress-photo img, .platform-card .platform-photo img, .person-card .person-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+}
+.card .card-content, .progress-card .card-content, .platform-card .card-content, .person-card .card-content, .progress-card .progress-content, .platform-card .platform-content {
+  flex: 1;
+  padding-top: 1rem;
+  text-align: left;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .grid, .progress-grid, .platform-grid, .people-grid {
+    grid-template-columns: 1fr;
+  }
+  .card, .progress-card, .platform-card, .person-card {
+    width: 100%;
+  }
+  .card-photo, .progress-card .progress-photo, .platform-card .platform-photo, .person-card .person-photo {
+    height: auto;
+  }
+  .card-photo img, .progress-card .progress-photo img, .platform-card .platform-photo img, .person-card .person-photo img {
+    height: auto;
+  }
+}
+.people-grid {
+  /* Small screens → 2 columns */
+}
+@media (min-width: 600px) {
+  .people-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.people-grid {
+  /* Medium screens → 3 columns */
+}
+@media (min-width: 840px) {
+  .people-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.people-grid {
+  /* Large screens → 4 columns */
+}
+@media (min-width: 1200px) {
+  .people-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.person-card .person-photo {
+  position: relative;
+}
+.person-card {
+  /* Overlay is unique */
 }
 .person-card .person-overlay {
   position: absolute;
@@ -60,6 +118,12 @@
   background: rgba(255, 255, 255, 0.1);
   color: #111827;
 }
+.person-card {
+  /* Hover behaviour unique to People */
+}
+.person-card:hover .person-overlay {
+  opacity: 1;
+}
 .person-card .person-name {
   font-size: 1.125rem;
   margin: 0.5rem 0;
@@ -83,145 +147,40 @@
 }
 
 @media (max-width: 768px) {
-  .people-grid {
-    grid-template-columns: 1fr;
-    justify-items: stretch;
+  .person-card .person-photo {
+    height: 480px;
   }
-  .person-card {
-    max-width: 100%;
-  }
-  .person-photo img {
-    height: auto;
+  .person-card .person-photo img {
+    height: 100%;
   }
 }
-.platform-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: stretch;
+.platform-card {
+  /* Platform-specific styling */
 }
-.platform-grid .platform-card {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.platform-grid .platform-card a.platform-link {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-  width: 100%;
-}
-.platform-grid .platform-card .platform-photo {
-  width: 100%;
-  height: 480px;
-  overflow: hidden;
-}
-.platform-grid .platform-card .platform-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.platform-grid .platform-card .platform-content {
-  flex: 1;
-  padding-top: 1rem;
-  text-align: left;
-}
-.platform-grid .platform-card .platform-content .platform-title {
+.platform-card .platform-title {
   font-size: 1.125rem;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  color: #111827;
 }
 
-@media (max-width: 768px) {
-  .platform-grid {
-    grid-template-columns: 1fr;
-  }
-  .platform-card {
-    width: 100%;
-  }
-  .platform-photo {
-    height: auto;
-  }
-  .platform-photo img {
-    height: auto;
-  }
+/* Attach the shared classes */
+.progress-card {
+  /* Progress-specific styling */
 }
-.progress-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: stretch;
-}
-.progress-grid .progress-card {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.progress-grid .progress-card a.progress-link {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  height: 100%;
-  width: 100%;
-}
-.progress-grid .progress-card .progress-photo {
-  width: 100%;
-  height: 480px;
-  overflow: hidden;
-}
-.progress-grid .progress-card .progress-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.progress-grid .progress-card .progress-content {
-  flex: 1;
-  padding-top: 1rem;
-  text-align: left;
-}
-.progress-grid .progress-card .progress-content .progress-date {
+.progress-card .progress-date {
   font-size: 0.875rem;
   color: #6b7280;
-  margin: 0;
 }
-.progress-grid .progress-card .progress-content .progress-title {
+.progress-card .progress-title {
   font-size: 1.125rem;
   margin: 0;
   font-family: "Roboto", sans-serif;
-  color: #111827;
 }
-.progress-grid .progress-card .progress-content .progress-description {
+.progress-card .progress-description {
   font-size: 16px;
   color: #6b7280;
-  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .progress-grid {
-    grid-template-columns: 1fr;
-  }
-  .progress-card {
-    width: 100%;
-  }
-  .progress-photo {
-    height: auto;
-  }
-  .progress-photo img {
-    height: auto;
-  }
-}
 .single-de_progress .progress-item {
   display: flex;
   flex-direction: column;
@@ -342,7 +301,7 @@
 }
 
 .site-header {
-  padding: 1rem 0.5rem;
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -351,6 +310,7 @@
   z-index: 999;
   background: #c8c8c8;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
 }
 .site-header .main-navigation {
   width: 100%;
@@ -380,11 +340,6 @@
   border-bottom: 2px solid #111827;
 }
 
-@media (min-width: 480px) {
-  .site-header {
-    padding: 1rem;
-  }
-}
 * {
   box-sizing: border-box;
 }
@@ -397,7 +352,7 @@ body {
 
 body {
   font-family: "Roboto", sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   color: #111827;
   background-color: #c8c8c8;
   min-height: 100vh;
@@ -409,17 +364,17 @@ main {
   flex: 1;
 }
 main section {
-  padding-top: 48px;
+  padding-top: 2rem;
 }
 main article {
-  padding-top: 48px;
+  padding-top: 2rem;
 }
 
 .container {
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
-  padding-inline: 24px;
+  padding-inline: 2rem;
 }
 
 .content-narrow {
