@@ -12,16 +12,16 @@ get_header();
             <?php while (have_posts()) : the_post();
 
                 $mainImage = get_field('main-image');
-                $customDate = get_field('custom-date');
+                // $customDate = get_field('custom-date');
                 $customTitle = get_field('custom-title');
 
-                $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
+                // $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
                 $title = $customTitle ? esc_html($customTitle) : get_the_title();
             ?>
 
                 <div class="platform-header">
                     <h1 class="platform-title"><?php echo esc_html($title); ?></h1>
-                    <p class="platform-date"><?php echo esc_html($date); ?></p>
+                    <!-- <p class="platform-date"><?php echo esc_html($date); ?></p> -->
                 </div>
 
                 <?php if ($mainImage) : ?>

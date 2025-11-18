@@ -22,7 +22,13 @@ get_header();
                         $description = get_field('description');
 
                         // Fallbacks
-                        $date = $customDate ? date_i18n(get_option('date_format'), strtotime($customDate)) : get_the_date();
+                        if ($customDate) {
+                            // ACF default date format is YYYYMMDD
+                            $dateObj = DateTime::createFromFormat('Ymd', $customDate);
+                            $date = $dateObj ? $dateObj->format(get_option('date_format')) : get_the_date();
+                        } else {
+                            $date = get_the_date();
+                        }
                         $title = $customTitle ? esc_html($customTitle) : get_the_title();
                         ?>
 

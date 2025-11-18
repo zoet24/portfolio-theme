@@ -11,12 +11,8 @@
 
 * {
   box-sizing: border-box;
-}
-
-html,
-body {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -39,11 +35,16 @@ main {
   article {
     padding-top: $space-container;
   }
+
+  p {
+    margin-bottom: $space-sm;
+  }
 }
 
 // Containers
 .container {
   width: 100%;
+  height: 100%;
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: $space-container;
@@ -52,4 +53,25 @@ main {
 .content-narrow {
   max-width: 720px;
   margin-inline: auto;
+}
+
+// About
+.about {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  height: calc(100% + 2rem);
+
+  div {
+    align-self: center;
+    text-align: center;
+  }
+
+  img {
+    max-height: 640px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
 }

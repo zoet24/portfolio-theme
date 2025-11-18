@@ -15,6 +15,10 @@
   .main-navigation {
     width: 100%;
 
+    @media (max-width: 600px) {
+      padding: 0 $space-sm;
+    }
+
     .nav-menu {
       display: flex;
       justify-content: space-between;
