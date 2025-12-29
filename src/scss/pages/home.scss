@@ -15,13 +15,6 @@
 }
 
 .home-hero__logo {
-  max-width: 280px;
-  width: 60%;
-}
-
-.home-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.25);
+  max-width: 200px;
+  width: 40%;
 }

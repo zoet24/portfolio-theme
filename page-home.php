@@ -29,10 +29,10 @@ if ( $images ) {
 <main class="home-hero" style="background-image: url('<?php echo esc_url( $background_image ); ?>');">
   <div class="home-hero__overlay">
     <img
-      src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/logo.svg' ); ?>"
-      alt="<?php bloginfo( 'name' ); ?>"
-      class="home-hero__logo"
-    />
+        src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/de-logo-white.png' ); ?>"
+        alt="<?php bloginfo( 'name' ); ?>"
+        class="home-hero__logo"
+        />
   </div>
 </main>
 
