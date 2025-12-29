@@ -8,3 +8,9 @@ function de_register_menus() {
     ]);
 }
 add_action('init', 'de_register_menus');
+
+// Enable categories for media attachments
+function enable_media_categories() {
+    register_taxonomy_for_object_type( 'category', 'attachment' );
+  }
+  add_action( 'init', 'enable_media_categories' );

@@ -10,7 +10,8 @@
 </head>
 <body <?php body_class(); ?>>
 
-<header class="site-header">
+<?php if ( ! is_page_template( 'page-home.php' ) ) : ?>
+  <header class="site-header">
     <nav class="main-navigation container">
       <?php
       wp_nav_menu([
@@ -20,4 +21,6 @@
       ]);
       ?>
     </nav>
-</header>
+  </header>
+<?php endif; ?>
+
