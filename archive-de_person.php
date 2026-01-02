@@ -1,4 +1,17 @@
-<?php get_header(); ?>
+<?php 
+/**
+ * Archive template for Progress Items
+ * Displays all 'de_progress' posts in a grid.
+ */
+
+    get_header(); 
+
+    $people_page = get_page_by_path('people');
+
+    if ($people_page) {
+        setup_postdata($people_page);
+    }
+?>
 
 <main id="site-content" role="main">
     <div class="container">

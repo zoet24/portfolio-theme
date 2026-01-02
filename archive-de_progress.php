@@ -4,7 +4,13 @@
  * Displays all 'de_progress' posts in a grid.
  */
 
-get_header();
+    get_header();
+
+    $progress_page = get_page_by_path('progress');
+
+    if ($progress_page) {
+        setup_postdata($progress_page);
+    }
 ?>
 
 <main id="site-content" role="main">

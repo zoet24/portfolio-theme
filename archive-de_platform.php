@@ -4,7 +4,13 @@
  * Displays all 'de_platform' posts in a grid.
  */
 
-get_header();
+    get_header();
+
+    $platform_page = get_page_by_path('platform');
+
+    if ($platform_page) {
+        setup_postdata($platform_page);
+    }
 ?>
 
 <main id="site-content" role="main">
