@@ -1,4 +1,11 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Roobert-Regular";
+  src: url("../assets/fonts/Roobert-Regular-Regular.woff2") format("woff2"), url("../assets/fonts/Roobert-Regular-Regular.woff") format("woff"), url("../assets/fonts/Roobert-Regular-Regular.ttf") format("truetype"), url("../assets/fonts/Roobert-Regular-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 .grid, .progress-grid, .platform-grid, .people-grid {
   display: grid;
   gap: 2rem;
@@ -132,7 +139,7 @@
 }
 .person-card .person-name {
   font-size: 1.125rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roobert-Regular", system-ui, sans-serif;
   color: #111827;
 }
 .person-card .person-links {
@@ -161,7 +168,7 @@
 }
 .platform-card .platform-title {
   font-size: 1.125rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roobert-Regular", system-ui, sans-serif;
 }
 
 /* Attach the shared classes */
@@ -174,7 +181,7 @@
 }
 .progress-card .progress-title {
   font-size: 1.125rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roobert-Regular", system-ui, sans-serif;
 }
 .progress-card .progress-description {
   font-size: 16px;
@@ -212,7 +219,7 @@
 }
 .single-de_progress .progress-item .progress-header .progress-title {
   font-size: 1.5rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roobert-Regular", system-ui, sans-serif;
   color: #111827;
   margin-bottom: 0.25rem;
 }
@@ -250,7 +257,7 @@
 }
 .single-de_platform .platform-item .platform-header .platform-title {
   font-size: 1.5rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roobert-Regular", system-ui, sans-serif;
   color: #111827;
   margin-bottom: 0.25rem;
 }
@@ -325,7 +332,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roobert-Regular", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   color: #111827;
   background-color: #f2f2f2;

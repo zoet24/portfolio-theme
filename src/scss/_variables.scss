@@ -8,9 +8,14 @@ $colour-text-light: #6b7280;
 $colour-border: #e5e7eb;
 
 // Typography
-$font-body: "Roboto", sans-serif;
+$font-body:
+  "Roobert-Regular",
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  sans-serif;
 $font-weight-body: 400;
-$font-heading: "Roboto", sans-serif;
+$font-heading: "Roobert-Regular", system-ui, sans-serif;
 $font-weight-heading: 700;
 
 $font-size-base: 16px;
