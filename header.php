@@ -28,35 +28,36 @@
     if (is_front_page() || is_home()) {
       $home_page_id = get_option('page_on_front');
       if ($home_page_id) {
-          $bubble_text = get_field('header_bubble_text', $home_page_id);
+          $bubble_text = get_field('nav_text', $home_page_id);
       }
   }
 
     // Normal pages
-    if (is_page()) {
-        $bubble_text = get_field('header_bubble_text');
-    }
+    // if (is_page()) {
+    //     $bubble_text = get_field('nav_text');
+    // }
 
-    // CPTs
-    if (is_post_type_archive()) {
-      $post_type = get_post_type(); // e.g. 'de_person', 'de_platform', 'de_progress'
+    // // CPTs
+    // if (is_post_type_archive()) {
+    //   $post_type = get_post_type(); // e.g. 'de_person', 'de_platform', 'de_progress'
   
-      $cpt_page_map = [
-          'de_person' => 'people',
-          'de_platform'  => 'platform',
-          'de_progress'  => 'progress',
-      ];
+    //   $cpt_page_map = [
+    //       'de_person' => 'people',
+    //       'de_platform'  => 'platform',
+    //       'de_progress'  => 'progress',
+    //   ];
   
-      if (isset($cpt_page_map[$post_type])) {
-          $controller_page = get_page_by_path($cpt_page_map[$post_type]);
+    //   if (isset($cpt_page_map[$post_type])) {
+    //       $controller_page = get_page_by_path($cpt_page_map[$post_type]);
   
-          if ($controller_page) {
-              $bubble_text = get_field('header_bubble_text', $controller_page->ID);
-          }
-      }
-  }
+    //       if ($controller_page) {
+    //           $bubble_text = get_field('nav_text', $controller_page->ID);
+    //       }
+    //   }
+  // }
   ?>
   
+  <!-- TOZO - Move out of header -->
   <?php if ($bubble_text): ?>
     <div class="header-bubble" data-open="true">
       <?php echo wp_kses_post($bubble_text); ?>
