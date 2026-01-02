@@ -5,8 +5,7 @@
 @use "./pages/home.scss" as home;
 @use "./pages/single-progress.scss" as singleProgress;
 @use "./pages/single-platform.scss" as singlePlatform;
-@use "./footer";
-@use "./header";
+@use "./nav";
 
 // TOZO - consolidate grid scss into shared functionality (maybe leave current class names on, but add generic classes for shared styling from single source of truth)
 

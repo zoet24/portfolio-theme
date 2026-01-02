@@ -36,3 +36,9 @@ if ( $images ) {
   </div>
 </main>
 
+<?php
+/*
+Template Name: Home
+*/
+get_footer();
+?>

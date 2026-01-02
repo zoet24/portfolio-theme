@@ -5,9 +5,10 @@
 function de_register_menus() {
     register_nav_menus([
         'primary' => __('Primary Menu', 'design-everything'),
+        'footer'  => __('Footer Menu', 'design-everything'),
     ]);
 }
-add_action('init', 'de_register_menus');
+add_action('after_setup_theme', 'de_register_menus');
 
 // Enable categories for media attachments
 function enable_media_categories() {

@@ -10,17 +10,15 @@
 </head>
 <body <?php body_class(); ?>>
 
-<?php if ( ! is_page_template( 'page-home.php' ) ) : ?>
-  <header class="site-header">
-    <nav class="main-navigation container">
-      <?php
-      wp_nav_menu([
-          'theme_location' => 'primary',
-          'menu_class' => 'nav-menu',
-          'container' => false,
-      ]);
-      ?>
-    </nav>
-  </header>
-<?php endif; ?>
+<header class="site-header">
+  <nav class="nav">
+    <?php
+    wp_nav_menu([
+        'theme_location' => 'primary',
+        'menu_class' => 'nav-menu',
+        'container' => false,
+    ]);
+    ?>
+  </nav>
+</header>
 
